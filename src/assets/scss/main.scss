@@ -1,0 +1,286 @@
+/* 
+=====================
+Template Name: 
+Author: Shokhrukh Shokirjonov   
+Author Email: shokhrukh024@gmail.com
+Version: 1.0.0
+=====================
+=====================
+  TABLE_OF_CONTENTS
+=====================
+1. PRIMARY_SECTION
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
+11.
+12.
+13.
+14.
+15.
+=====================
+*/
+
+
+
+
+
+
+
+
+/* ========== PRIMARY_SECTION START ========== */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+}
+
+
+body{
+    height: 100%;
+    min-height: 100vh;
+}
+
+
+ul{
+    margin-bottom: 0 !important;
+}
+
+.container{
+    max-width: 1240px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+.text-italic{
+    font-style: italic;
+}
+/* ========== PRIMARY_SECTION END ========== */
+
+
+
+
+
+
+
+
+.ml-1, .mx-1 {
+    margin-left: 1rem !important;
+}
+.mr-1, .mx-1 {
+    margin-right: 1rem !important;
+}
+.mt-1, .my-1 {
+    margin-top: 1rem !important;
+}
+.mb-1, .my-1 {
+    margin-bottom: 1rem !important;
+}
+
+
+
+
+
+h4, .h4 {
+    font-size: 1.286rem;
+}
+
+h5, .h5 {
+    font-size: 1.07rem;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #5e5873;
+}
+
+
+
+
+
+
+
+.h-100vh{
+    height: 100%;
+    min-height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+    border: none;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(34, 41, 47, 0.125);
+    border-radius: 0.428rem;
+
+    transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+
+.card .card-title {
+    font-weight: 500 !important;
+    font-size: 1.285rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+    box-shadow: none;
+    cursor: pointer;
+
+    font-weight: 500;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent !important;
+    padding: 0.786rem 1.5rem;
+    border-radius: 0.358rem;
+
+
+    display: inline-block;
+    color: #6e6b7b;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 1rem;
+    line-height: 1;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0s, border 0s;
+}
+
+.btn-success{
+    color: #fff !important;
+    border-color: #28c76f !important;
+    background-color: #28c76f !important;
+}    
+
+
+.btn-danger {
+    color: #fff !important;
+    border-color: #ea5455 !important;
+    background-color: #ea5455 !important;
+}
+
+
+.btn-warning {
+    color: #fff !important;
+    border-color: #E0A800 !important;
+    background-color: #E0A800 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.input-group-text {
+    padding: 0.438rem 1rem;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #d8d6de;
+    border-radius: 0.357rem;
+}
+
+
+
+
+
+
+[class*=collapse-] .card {
+    margin-bottom: 0;
+}
+
+
+.collapse-default .card {
+    border-radius: 0;
+}
+
+
+[class*=collapse-] .card:not(:last-of-type) {
+    border-bottom: 1px solid #ebe9f1;
+}
+
+
+.collapse-default .card:first-child {
+    border-top: 0;
+}
+
+

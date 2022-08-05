@@ -2,7 +2,7 @@
   <b-card>
 
     <div class="d-flex justify-content-end">
-      <!-- <b-button @click="downloadExcel" variant="success" class="mb-2">Export .xls</b-button> -->
+      <b-button @click="downloadExcel" variant="success" class="mb-4">Export .xls</b-button>
     </div>
 
     <b-row class="mb-1">
@@ -39,86 +39,97 @@
     </b-row>
 
 
-    <!-- <app-collapse>
-      <app-collapse-item
-          title="1" 
-      > -->
-      <div v-for="(item, index) in (getReportOperatorsByCalls && getReportOperatorsByCalls.data4) ? getReportOperatorsByCalls.data4 : 0"
-          :key="index">
-        <!-- <template #header> -->
-          <b-row class="w-100">
-
-            <b-col class="col-md-3 text-center">
-              <h5 class="mb-0 ml-2">
-                {{ item.time }}
-              </h5>
-            </b-col>
-
-            <b-col class="col-md-3 text-center">
-              <h5 class="mb-0">
-                {{ item.all_calls }}
-              </h5>
-            </b-col>
-
-            <b-col class="col-md-3 text-center">
-              <h5 class="mb-0">
-                {{ item.missed_calls }}
-              </h5>
-            </b-col>
-
-            <b-col class="col-md-3 text-center">
-              <h5 class="mb-0">
-                {{ item.missed_in_percent }}%
-              </h5>
-            </b-col>
+  
 
 
-          </b-row>
-        <!-- </template> -->
 
-        <vue-good-table
-            class="table-hover mt-1"
-            :columns="columns"
-            :rows="item.items"
-            style-class="slots_text_align vgt-table bordered"
-            :search-options="{
-                enabled: true,
-                externalQuery: searchTerm,
-            }"
-            :select-options="{
-                enabled: false,
-                selectOnCheckboxOnly: false,
-                selectionInfoClass: 'custom-class',
-                selectionText: 'rows selected',
-                clearSelectionText: 'clear',
-                disableSelectInfo: true,
-                selectAllByGroup: true,
-            }"
-            :pagination-options="{
-                enabled: false,
-            }"
-            :sort-options="{
-                enabled: true,
-            }"
-        >
-          <template slot="table-column" slot-scope="props" class="align-middle">
-            <span>
-              {{ $t(props.column.i18n) || props.column.label }}
-            </span>
-          </template>
 
-          <template slot="table-row" slot-scope="props" class="align-middle">
-            <span
-                v-if="props.column.field === 'on_percent'"
-            >
-                {{ props.row.on_percent }}%
-            </span>
 
-          </template>
-        </vue-good-table>
-      </div>
-      <!-- </app-collapse-item>
-    </app-collapse> -->
+      <b-button block v-b-toggle="'accordion' + index" variant="light" class="bg-light-dark"
+        v-for="(item, index) in (getReportOperatorsByCalls && getReportOperatorsByCalls.data4) ? getReportOperatorsByCalls.data4 : 0"
+        :key="index">
+
+
+
+
+        <b-row class="w-100">
+          <b-col class="col-md-3 text-center">
+            <h5 class="mb-0 ml-2">
+              {{ item.time }}
+            </h5>
+          </b-col>
+
+          <b-col class="col-md-3 text-center">
+            <h5 class="mb-0">
+              {{ item.all_calls }}
+            </h5>
+          </b-col>
+
+          <b-col class="col-md-3 text-center">
+            <h5 class="mb-0">
+              {{ item.missed_calls }}
+            </h5>
+          </b-col>
+
+          <b-col class="col-md-3 text-center">
+            <h5 class="mb-0">
+              {{ item.missed_in_percent }}%
+            </h5>
+          </b-col>
+        </b-row>
+
+
+
+        <b-collapse :id="'accordion' + index" accordion="my-accordion" role="tabpanel" >
+
+          <vue-good-table
+              class="table-hover mt-1"
+              :columns="columns"
+              :rows="item.items"
+              style-class="slots_text_align vgt-table bordered"
+              :search-options="{
+                  enabled: true,
+                  externalQuery: searchTerm,
+              }"
+              :select-options="{
+                  enabled: false,
+                  selectOnCheckboxOnly: false,
+                  selectionInfoClass: 'custom-class',
+                  selectionText: 'rows selected',
+                  clearSelectionText: 'clear',
+                  disableSelectInfo: true,
+                  selectAllByGroup: true,
+              }"
+              :pagination-options="{
+                  enabled: false,
+              }"
+              :sort-options="{
+                  enabled: true,
+              }"
+          >
+            <template slot="table-column" slot-scope="props" class="align-middle">
+              <span>
+                {{ $t(props.column.i18n) || props.column.label }}
+              </span>
+            </template>
+
+            <template slot="table-row" slot-scope="props" class="align-middle">
+              <span
+                  v-if="props.column.field === 'on_percent'"
+              >
+                  {{ props.row.on_percent }}%
+              </span>
+
+            </template>
+          </vue-good-table>
+        </b-collapse>
+       
+      </b-button>
+  
+
+
+
+
   </b-card>
 </template>
 
@@ -135,8 +146,9 @@ import {
   BCol,
   BAvatar,
   BBadge,
+  BCollapse
 } from 'bootstrap-vue'
-// import moment from "moment";
+import moment from "moment";
 
 export default {
   name: 'collapse',
@@ -154,7 +166,8 @@ export default {
     BBadge,
     BAvatar,
     VueGoodTable,
-    // downloadExcel: JsonExcel,
+    BCollapse,
+    downloadExcel: JsonExcel,
   },
   data() {
     return {
@@ -199,33 +212,33 @@ export default {
   },
   methods: {
     ...mapActions(['FETCH_REPORT_EXCEL_BY_CALLS']),
-    // downloadExcel() {
-    //   const filters = {}
-    //   console.log(this.filters)
-    //   if (this.filters.start_date) {
-    //     // filters.start_date = moment(this.filters.start_date).format(
-    //     //   "YYYY-MM-DD"
-    //     // );
-    //   }
+    downloadExcel() {
+      const filters = {}
+      console.log(this.filters)
+      if (this.filters.start_date) {
+        filters.start_date = moment(this.filters.start_date).format(
+          "YYYY-MM-DD"
+        );
+      }
 
-    //   if (this.filters.end_date) {
-    //     // filters.end_date = moment(this.filters.end_date).format(
-    //       // "YYYY-MM-DD"
-    //     // );
-    //   }
-    //   this.FETCH_REPORT_EXCEL_BY_CALLS(filters)
-    //       .then((res) => {
-    //         const url = window.URL.createObjectURL(new Blob([res.data]))
-    //         const link = document.createElement('a')
-    //         link.href = url
-    //         link.setAttribute(
-    //             'download',
-    //             'Отчет_о_работе_операторов.xls'
-    //         )
-    //         document.body.appendChild(link)
-    //         link.click()
-    //       })
-    // }
+      if (this.filters.end_date) {
+        filters.end_date = moment(this.filters.end_date).format(
+          "YYYY-MM-DD"
+        );
+      }
+      this.FETCH_REPORT_EXCEL_BY_CALLS(filters)
+          .then((res) => {
+            const url = window.URL.createObjectURL(new Blob([res.data]))
+            const link = document.createElement('a')
+            link.href = url
+            link.setAttribute(
+                'download',
+                'Отчет_о_работе_операторов.xls'
+            )
+            document.body.appendChild(link)
+            link.click()
+          })
+    }
   },
   computed: {
     ...mapGetters(['getReportOperatorsByCalls'])
@@ -234,11 +247,7 @@ export default {
 </script>
 
 <style lang="scss">
-.collapse-title {
-  margin-left: 22px;
-}
-
-.collapse-icon [aria-expanded=false]:after {
-  transform: rotate(-91deg);
+.bg-light-dark{
+  background: #eef1f5;
 }
 </style>

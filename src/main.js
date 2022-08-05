@@ -11,15 +11,22 @@ Vue.config.productionTip = false
 
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 
-import '@/assets/scss/core.scss'
-// import '@/libs/feather-icons'
+
+
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTablePlugin);
+
+
+
+import '@/assets/scss/main.scss'
 
 new Vue({
   router,

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 main">
+  <div class="p-4 bg-light h-100vh">
     <b-card class="mb-4" :title="$t('report.daily_chart_of_receiving_calls')">
       <b-row class="align-items-center">
         <b-col class="col-lg-2 col-md-3 col-12">
@@ -62,7 +62,7 @@
         </b-card>
       </b-col>
 
-      <b-col class="col-lg-6 col-md-12 col-12">
+      <!-- <b-col class="col-lg-6 col-md-12 col-12">
         <b-card :title="$t('report.operators_work')">
           <IEcharts
             :option="optionLine"
@@ -82,7 +82,7 @@
             class="echarts"
           />
         </b-card>
-      </b-col>
+      </b-col> -->
       <b-col class="col-md-12">
         <collapse :filters="filter" />
       </b-col>
@@ -289,13 +289,7 @@ export default {
 *{
   box-sizing: border-box;
 }
-.main{
-  background-color: rgb(229,229,229);
-}
 .echarts {
   min-height: 500px;
-}
-.card1{
-  // margin-bottom: 20px;
 }
 </style>

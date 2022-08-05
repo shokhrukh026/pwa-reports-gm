@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/',
+    name: 'home',
+    component: () => import('../views/Home.vue')
+  },
+  {
     path: '/operator-performance',
     name: 'operator-performance',
     component: () => import('../views/operatorPerformance/index.vue')

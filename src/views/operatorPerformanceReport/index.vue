@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-4 bg-light h-100vh">
     <b-card :title="$t('report.operator_performance_report')">
       <b-row class="align-items-center">
         <b-col class="col-lg-2 col-md-3 col-12">
