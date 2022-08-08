@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 bg-light h-100vh">
-    <b-card>
+    <b-card :title="$t('report.report_by_time')">
       <b-row class="align-items-center mb-1">
         <b-col class="col-lg-2 col-md-3 col-12">
           <b-form-group :label="$t('from')" for="start_date">

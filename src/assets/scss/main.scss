@@ -102,6 +102,13 @@ ul{
     margin-bottom: 1rem !important;
 }
 
+.ml-50{
+    margin-left: 0.5rem !important;
+}
+.mt-50{
+    margin-top: 0.5rem !important;
+}
+
 
 
 
@@ -284,3 +291,161 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bg-yellow{
+    background-color: #34568B;
+    // box-shadow: #34568B 0px 2px 4px 0px, #34568B 0px 2px 4px 0px !important;
+    border: 1px solid #2a4776 !important;
+
+    span{
+        color: #FFF !important;
+    }
+}
+.bg-green{
+    background-color: #9B2335;
+    // box-shadow: #9B2335 0px 2px 4px 0px, #9B2335 0px 2px 4px 0px !important;
+    border: 1px solid #671824 !important;
+
+    span{
+        color: #FFF !important;
+    }
+}
+.bg-blue{
+    background-color: #606C83;
+    // box-shadow: #606C83 0px 2px 4px 0px, #606C83 0px 2px 4px 0px !important;
+    border: 1px solid #485161 !important;
+
+    span{
+        color: #FFF !important;
+    }
+}
+
+.home__page{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    padding: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+
+    background-image: url('@/assets/images/bg05.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    // background-color: #34568B;
+
+    &_lang{
+        z-index: 150;
+    }
+
+    &_container{
+        width: 100%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        
+        .home__page__card{
+            width: 20vw;
+            height: 20vw;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            cursor: pointer;
+            // box-shadow: rgba(3, 102, 214, 0.3) 0px 2px 2px 0px, rgba(3, 102, 214, 0.3) 0px 2px 4px 0px;
+
+            border: 1px solid #FFF;
+            z-index: 150;
+
+            opacity: 1;
+
+            span{
+                font-weight: 600;
+                text-align: center;
+                font-size: 1.2vw;
+                color: rgba(3, 102, 214, 1);
+            }
+
+            &:hover{
+                transform: translateY(-8px);
+            }
+        }
+    }
+
+
+
+
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        z-index: 100;
+
+        background-color: #000;
+        opacity: 0.2;
+    }
+
+}
