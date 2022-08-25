@@ -147,7 +147,7 @@ import flatPickr from "vue-flatpickr-component";
 import { mapActions, mapGetters } from "vuex";
 import Datepicker from "vuejs-datepicker";
 import { ru } from "vuejs-datepicker/dist/locale";
-// import moment from "moment";
+import moment from "moment";
 
 export default {
   name: "Index",
@@ -300,15 +300,15 @@ export default {
     searchFilter() {
       this.chart = false;
       if (this.filter.start_date) {
-        // this.filter.start_date = moment(this.filter.start_date).format(
-        //   "YYYY-MM-DD"
-        // );
+        this.filter.start_date = moment(this.filter.start_date).format(
+          "YYYY-MM-DD"
+        );
       }
 
       if (this.filter.end_date) {
-        // this.filter.end_date = moment(this.filter.end_date).format(
-        //   "YYYY-MM-DD"
-        // );
+        this.filter.end_date = moment(this.filter.end_date).format(
+          "YYYY-MM-DD"
+        );
       }
       this.FETCH_REPORT_OPERATORS_TALK_TIME(this.filter).then(() => {
         this.chart = true;
